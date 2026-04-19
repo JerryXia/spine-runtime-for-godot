@@ -22,13 +22,13 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       
       # Clone our module under the correct directory
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: modules/spine_runtime
       
@@ -36,7 +36,7 @@ jobs:
       # Editing this is pretty dangerous for Windows since it can break and needs to be properly tested with a fresh cache.
       - name: Load .scons_cache directory
         id: windows-editor-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{github.workspace}}/.scons_cache/
           key: ${{github.job}}-${{env.GODOT_BASE_BRANCH}}-${{github.ref}}-${{github.sha}}
@@ -47,7 +47,7 @@ jobs:
 
       # Use python 3.x release (works cross platform; best to keep self contained in it's own step)
       - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
@@ -82,13 +82,13 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       
       # Clone our module under the correct directory
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: modules/spine_runtime
 
@@ -107,7 +107,7 @@ jobs:
 
       # Use python 3.x release (works cross platform; best to keep self contained in it's own step)
       - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
@@ -130,7 +130,7 @@ jobs:
           scons -j2 verbose=yes warnings=all werror=yes platform=${{env.GODOT_TARGET_PLATFORM}} tools=no tests=no target=debug bits=64
 
       # Make build available
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: godot.${{env.GODOT_TARGET_PLATFORM}}.debug.64.exe
           path: bin/godot.${{env.GODOT_TARGET_PLATFORM}}.debug.64.exe
@@ -142,13 +142,13 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       
       # Clone our module under the correct directory
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: modules/spine_runtime
 
@@ -167,7 +167,7 @@ jobs:
 
       # Use python 3.x release (works cross platform; best to keep self contained in it's own step)
       - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
@@ -190,7 +190,7 @@ jobs:
           scons -j2 verbose=yes warnings=all werror=yes platform=${{env.GODOT_TARGET_PLATFORM}} tools=no tests=no target=release bits=64
 
       # Make build available
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: godot.${{env.GODOT_TARGET_PLATFORM}}.opt.64.exe
           path: bin/godot.${{env.GODOT_TARGET_PLATFORM}}.opt.64.exe
@@ -203,13 +203,13 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       
       # Clone our module under the correct directory
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: modules/spine_runtime
       
@@ -217,7 +217,7 @@ jobs:
       # Editing this is pretty dangerous for Windows since it can break and needs to be properly tested with a fresh cache.
       - name: Load .scons_cache directory
         id: windows-editor-32-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{github.workspace}}/.scons_cache/
           key: ${{github.job}}-${{env.GODOT_BASE_BRANCH}}-${{github.ref}}-${{github.sha}}
@@ -228,7 +228,7 @@ jobs:
 
       # Use python 3.x release (works cross platform; best to keep self contained in it's own step)
       - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
@@ -251,7 +251,7 @@ jobs:
           scons -j2 verbose=yes warnings=all werror=no platform=${{env.GODOT_TARGET_PLATFORM}} tools=yes tests=no target=release_debug bits=32
 
       # Make build available
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: godot_editor_with_spine_${{env.SPINE_SUFFIX}}.32.exe
           path: bin/godot.${{env.GODOT_TARGET_PLATFORM}}.opt.tools.32.exe
@@ -263,13 +263,13 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       
       # Clone our module under the correct directory
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: modules/spine_runtime
 
@@ -288,7 +288,7 @@ jobs:
 
       # Use python 3.x release (works cross platform; best to keep self contained in it's own step)
       - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
@@ -311,7 +311,7 @@ jobs:
           scons -j2 verbose=yes warnings=all werror=no platform=${{env.GODOT_TARGET_PLATFORM}} tools=no tests=no target=debug bits=32
 
       # Make build available
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: godot.${{env.GODOT_TARGET_PLATFORM}}.debug.32.exe
           path: bin/godot.${{env.GODOT_TARGET_PLATFORM}}.debug.32.exe
@@ -323,13 +323,13 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       
       # Clone our module under the correct directory
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           path: modules/spine_runtime
 
@@ -348,7 +348,7 @@ jobs:
 
       # Use python 3.x release (works cross platform; best to keep self contained in it's own step)
       - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           # Semantic version range syntax or exact version of a Python version
           python-version: '3.x'
@@ -371,7 +371,7 @@ jobs:
           scons -j2 verbose=yes warnings=all werror=no platform=${{env.GODOT_TARGET_PLATFORM}} tools=no tests=no target=release bits=32
 
       # Make build available
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: godot.${{env.GODOT_TARGET_PLATFORM}}.opt.32.exe
           path: bin/godot.${{env.GODOT_TARGET_PLATFORM}}.opt.32.exe
