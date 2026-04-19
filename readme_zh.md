@@ -5,7 +5,6 @@
 
 适用于Godot3.x版本。
 
-
 # 说明
 添加了SpineSprite节点，用于加载Spine的骨骼动画(需提供.atlas文件，图片文件和.json文件，atlas资源会自动加载图片)，并提供方法用于控制动画的播放，动画的混合等。同时提供相应的信号，用于处理骨骼动画发出的事件。
 
@@ -16,3 +15,6 @@
 按照Spine官方声明的，使用spine-runtime需在 [Spine Runtime License Agreement](http://zh.esotericsoftware.com/spine-runtimes-license) 下进行。
 
 除了`spine-cpp`文件夹下的其他代码，均为MIT协议。
+
+
+
