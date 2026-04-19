@@ -70,7 +70,7 @@ jobs:
           scons -j2 verbose=yes warnings=all werror=yes platform=${{env.GODOT_TARGET_PLATFORM}} tools=yes tests=no target=release_debug bits=64
 
       # Make build available
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: godot_editor_with_spine_${{env.SPINE_SUFFIX}}.64.exe
           path: bin/godot.${{env.GODOT_TARGET_PLATFORM}}.opt.tools.64.exe
